@@ -11,7 +11,7 @@ describe('app Selectors', () => {
   }
 
   testSelector({
-    selector: appSelectors.isReady,
+    selector: appSelectors.isReadySelector,
     state: mockParametersReady,
     key: 'isReady',
     xpath: 'app'

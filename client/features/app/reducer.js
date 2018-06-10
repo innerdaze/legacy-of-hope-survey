@@ -1,8 +1,10 @@
 import { handleActions } from 'redux-actions'
-import { ready } from './actions'
+import { ready, setPage, setLocale } from './actions'
 
 const initialState = {
-  isReady: false
+  isReady: false,
+  currentPage: 'screen1',
+  locale: 'en'
 }
 
 const reducer = handleActions(
@@ -11,6 +13,18 @@ const reducer = handleActions(
       return {
         ...state,
         isReady: true
+      }
+    },
+    [setPage](state, { payload: currentPage }) {
+      return {
+        ...state,
+        currentPage
+      }
+    },
+    [setLocale](state, { payload: locale }) {
+      return {
+        ...state,
+        locale
       }
     }
   },

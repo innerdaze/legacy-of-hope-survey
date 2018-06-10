@@ -4,24 +4,22 @@ import PropTypes from 'prop-types'
 import { ConnectedRouter } from 'connected-react-router'
 import Notification from 'grommet/components/Notification'
 import history from '../history'
-import AuthenticatedRoute from '../components/AuthenticatedRoute'
-import AppLayout from '../components/AppLayout'
+import AuthenticatedRoute from './AuthenticatedRoute'
+import AppLayout from './AppLayout'
 import GenericErrorBoundary from './GenericErrorBoundary'
+import InternationalApp from '~features/app/components/InternationalApp'
 
 const Root = ({}) => (
   <ConnectedRouter history={history}>
     <AppLayout>
       <GenericErrorBoundary
-        renderError={() => (
-          <Notification
-            closer
-            message={error}
-            status='critical'
-            onClose={handleNotificationClose}
-          />
-        )}
+        renderError={({ error }) =>
+          error && (
+            <Notification closer message={error.message} status='critical' />
+          )
+        }
       >
-        <h1>{'hi'}</h1>
+        <InternationalApp />
       </GenericErrorBoundary>
     </AppLayout>
   </ConnectedRouter>
