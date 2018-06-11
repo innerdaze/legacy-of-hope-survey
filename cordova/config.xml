@@ -19,13 +19,14 @@
     <platform name="android">
         <preference name="android-targetSdkVersion" value="25" />
         <preference name="android-minSdkVersion" value="25" />
+        <preference name="android-maxSdkVersion" value="25" />
         <allow-intent href="market:*" />
     </platform>
-    <uses-sdk android:maxSdkVersion="25" android:minSdkVersion="25" android:targetSdkVersion="25" />
     <platform name="ios">
         <allow-intent href="itms:*" />
         <allow-intent href="itms-apps:*" />
     </platform>
     <plugin name="cordova-plugin-file" spec="^6.0.1" />
-    <engine name="android" spec="7.1.0" />
+    <engine name="android" spec="^7.0.0" />
+    <engine name="browser" spec="^5.0.3" />
 </widget>

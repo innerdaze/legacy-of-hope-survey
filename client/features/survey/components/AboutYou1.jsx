@@ -14,9 +14,9 @@ import dictionary from '~/dictionary'
 const AboutYou1 = ({ setPage, submitAboutYou1, locale }) => (
   <Formik
     initialValues={{
-      gender: 'female',
+      gender: dictionary[locale].aboutYou.gender.option1,
       age: '',
-      nationality: 'inuit'
+      nationality: dictionary[locale].aboutYou.nationality.option1
     }}
     onSubmit={(values, actions) => {
       submitAboutYou1(values)

@@ -164,7 +164,7 @@
     "storybook": "0.0.0",
     "style-loader": "^0.16.0",
     "url-loader": "^1.0.1",
-    "uuid": "^3.0.1",
+    "uuid": "^3.2.1",
     "valid-url": "^1.0.9",
     "webpack": "^2.0.0",
     "webpack-dashboard": "^0.3.0",

@@ -12,15 +12,15 @@ import { tempAboutYouSelector } from '../selectors'
 import { localeSelector } from '~features/app/selectors'
 import dictionary from '~/dictionary'
 
-const AboutYou2 = ({ previousData, setPage, submitAboutYou, locale }) => (
+const AboutYou2 = ({ tempAboutYou, setPage, submitAboutYou, locale }) => (
   <Formik
     initialValues={{
-      identity: '',
-      knowledge: '',
-      impacted: ''
+      identity: dictionary[locale].aboutYou.identity.option1,
+      knowledge: dictionary[locale].aboutYou.knowledge.option1,
+      impacted: dictionary[locale].aboutYou.impacted.option1
     }}
     onSubmit={(values, actions) => {
-      submitAboutYou({ ...previousData, ...values })
+      submitAboutYou({ ...tempAboutYou, ...values })
       actions.setSubmitting(false)
       setPage('screen2')
     }}

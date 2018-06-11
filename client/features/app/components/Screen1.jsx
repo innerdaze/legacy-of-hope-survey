@@ -9,7 +9,7 @@ import CanadaLogo from '../assets/img/Canwordmark_colour.png'
 import { setPage } from '../actions'
 
 const Screen1 = ({ setPage }) => (
-  <Section direction='row' responsive={false}>
+  <Section direction='row'>
     <Box>
       <Image src={LHFLogo} size='small' />
     </Box>

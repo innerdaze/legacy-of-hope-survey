@@ -1,4 +1,5 @@
 import { clearTempAboutYou } from './actions'
+import { v4 } from 'uuid'
 
 var errorHandler = function(fileName, e) {
   var msg = ''
@@ -28,9 +29,8 @@ var errorHandler = function(fileName, e) {
 }
 
 function writeToFile(fileName, data) {
-  data = JSON.stringify(data, null, '\t')
   window.resolveLocalFileSystemURL(
-    cordova.file.dataDirectory,
+    cordova.file.externalDataDirectory,
     function(directoryEntry) {
       directoryEntry.getFile(
         fileName,
@@ -60,16 +60,16 @@ function writeToFile(fileName, data) {
 }
 
 const storeData = data => {
-  writeToFile('survey-data.json', data)
+  writeToFile('survey-data.json', JSON.stringify(data, null, '\t') + ',')
 }
 
 export const submitAboutYou = about => dispatch => {
   dispatch(clearTempAboutYou())
-  storeData({ about })
+  storeData({ [v4()]: { about } })
 }
 export const submitMessage = message => dispatch => {
-  storeData({ message })
+  storeData({ [v4()]: { message } })
 }
 export const submitFeedback = feedback => dispatch => {
-  storeData({ feedback })
+  storeData({ [v4()]: { feedback } })
 }
